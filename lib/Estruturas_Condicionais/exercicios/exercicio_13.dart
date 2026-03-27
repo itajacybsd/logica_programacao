@@ -7,8 +7,6 @@ void main(List<String> args) {
   print("Digite o valor do etanol: ");
   double etanol = double.parse(stdin.readLineSync() as String);
 
-  // double indice = etanol / gasolina;
-
   if ((etanol / gasolina) >= 0.7) {
     print('Compensa abastecer com gasolina');
   } else {

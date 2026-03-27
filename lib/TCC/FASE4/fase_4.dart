@@ -1,3 +1,5 @@
+// FAZENDO SOMENTE COM O QUE FOI VISTO ATÉ O MOMENTO
+
 import 'dart:io';
 
 void main() {
