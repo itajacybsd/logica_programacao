@@ -12,14 +12,8 @@ void main(List<String> args) {
   double media = (nota1 + nota2) / 2;
 
   if (media >= 6.0) {
-    print("APROVADO(A)");
+    print("$nome APROVADO(A)");
   } else {
-    print("Digite a nota  da recuperação: ");
-    double recuperacao = double.parse(stdin.readLineSync() as String);
-    if (recuperacao >= 5) {
-      print("APROVADO(A)");
-    } else {
-      print("RECUPERAÇAO");
-    }
+    print("$nome RECUPERAÇAO");
   }
 }
