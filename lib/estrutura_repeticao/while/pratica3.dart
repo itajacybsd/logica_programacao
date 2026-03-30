@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 // Escreva um algoritmo que simule um radar em uma rodovia.
 //
