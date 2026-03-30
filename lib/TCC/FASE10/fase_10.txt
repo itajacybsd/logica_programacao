@@ -1,0 +1,24 @@
+
+O sistema para uso de clientes e funcionários, para exibir ofertas, promoções de permitir a abertura de ordem de serviço
+
+
+- Ao entrar é solicitado o nome do cliente e exibido uma mensagem de bem vindo e o endereço.
+
+- caso o nome do Usuário seja "cuidapetrestrito" o usuário é direcionado para a tela de Abertura de OS
+
+- caso o nome do Usuário NÃO SEJA "cuidapetrestrito" é exibido um menu com as opções:
+1 - cliente
+2 - funcionário
+
+- a opção é solicitada
+- é adicionado +1 ao total de clientes atendidos
+
+- caso seja digitado 1, é aberto o menu de ofertas e promoções (1 a 6) e (10 - sair)
+	- é aguardado digitar a opção do menu
+		- se for digitado um numero diferente das opções é exibida a mensagem "Opção inválida"
+		- se for digitado 1 a 6 é exibida a mensagem correspondente a promoção
+		- se for digitado 10 sai do sistema e mostra mensagem de total de clientes atendidos.
+
+- caso seja digitado 2, é aberto o menu de abertura de OS, aonde são feitas 4 perguntas, sobre aquisição
+	de produtos e serviços que tem seu valor ou desconto acrescido e calculado no valor da OS
+	e que tem seu valor total exibido após o final da OS
