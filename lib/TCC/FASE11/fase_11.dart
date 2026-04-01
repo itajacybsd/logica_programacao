@@ -1,32 +1,26 @@
-// FEITO SOMENTE COM O QUE FOI VISTO ATÉ O MOMENTO
-
-// FALTA FAZER O TOTAL DE CLIENTES ATENDIDOS
-
 import 'dart:io';
 
 void main() {
   int totalClientesAtendidos = 0;
   double valorTotalDeVendasDoDia = 0;
-  bool principal = true;
-  while (principal) {
-    bool continua = true;
-    int usuario = 0;
-    int opcao1 = 0;
+  bool primeiro = true;
+  int usuario = 0;
+  int opcao1 = 0;
+  while (primeiro) {
     List<String> itensCarrinhoDeCompra = [];
     List<double> valoresDosItensCarrinhoDeCompra = [];
     print("Bem vindo ao autoatendimento do Cuidapet");
 
     print('Digite o seu nome:');
     var nome = stdin.readLineSync();
-    while (continua) {
-      if (nome != "cuidapetrestrito") {
-        usuario = 1;
-      } else {
-        usuario = 2; // Cliente com Acesso direto para ABERTURA DE OS
-      }
+    if (nome != "cuidapetrestrito") {
+      usuario = 1; // Cliente
+    } else {
+      usuario = 2; // Funcionario
+    }
 
-      // totalClientesAtendidos++;
-
+    bool segundo = true;
+    while (segundo) {
       switch (usuario) {
         case 1:
           // INICIO DO MENU PARA CLIENTES
@@ -75,7 +69,6 @@ void main() {
                   print(
                     "##########################################################\n",
                   );
-                  // menu1 = false;
                 }
                 if (subMenu1Prod == 8 && itensCarrinhoDeCompra.length < 3) {
                   print("Entre com o código do item desejado:");
@@ -204,7 +197,6 @@ void main() {
                 }
               }
             } else if (opcao1 == 3) {
-              // TODO CONTINUAR A PARTIR DAQUI  listando carrinho de compra
               if (itensCarrinhoDeCompra.isEmpty) {
                 print("Carrinho está vazio!");
               } else {
@@ -249,6 +241,7 @@ void main() {
                   totalClientesAtendidos++;
                   valorTotalDeVendasDoDia =
                       valorTotalDeVendasDoDia + totalAPagar;
+                  segundo = false;
                 } else if (formaPagamento == "C") {
                   print("\n=========================================");
                   print("Total à pagar: $totalAPagar");
@@ -256,22 +249,20 @@ void main() {
                   totalClientesAtendidos++;
                   valorTotalDeVendasDoDia =
                       valorTotalDeVendasDoDia + totalAPagar;
+                  segundo = false;
                 } else {
                   print("\n Opção Inválida!\n");
                 }
               }
             } else if (opcao1 == 0) {
               menu1 = false;
-              continua = false;
-              principal = false;
+              primeiro = false;
+              segundo = false;
             }
-
-            // FIM DO MENU PARA CLIENTES
-
             break;
           }
         case 2:
-          // INICIO DO MENU PARA ABERTURA DE OS
+          // INICIO DO MENU PARA FUNCIONARIOS
           print("\nAREA RESTRITA DOS FUNCIONARIOS\n");
           print("Digite o nome do Cliente:");
           String nomeCliente = stdin.readLineSync() as String;
@@ -293,21 +284,19 @@ void main() {
               print("=========================================\n");
               totalClientesAtendidos++;
               valorTotalDeVendasDoDia = valorTotalDeVendasDoDia + totalAPagar;
+              segundo = false;
             } else if (formaPagamento == "C") {
               print("\n=========================================");
               print("Total à pagar: $totalAPagar");
               print("=========================================\n");
               totalClientesAtendidos++;
               valorTotalDeVendasDoDia = valorTotalDeVendasDoDia + totalAPagar;
+              segundo = false;
             } else {
               print("\n Opção Inválida!\n");
             }
           }
-
           break;
-        // FIM DO MENU PARA ABERTURA DE OS
-        default:
-          print("Opção inválida. Por favor, escolha 1 ou 2.");
       }
     }
   }
