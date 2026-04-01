@@ -49,7 +49,9 @@ void main(List<String> args) {
         for (var poltrona = 0; poltrona < poltronasPorFileira; poltrona++) {
           if ((fileira == fileiraEscolhida) &&
               (poltrona == poltronaEscolhida)) {
-            fileiraP += '******** | ';
+            teatro[fileira][poltrona] = '******** | ';
+            fileiraP += teatro[fileira][poltrona];
+            // fileiraP += '******** | ';
           } else {
             fileiraP += 'P($fileira$poltrona): ${teatro[fileira][poltrona]} | ';
           }
