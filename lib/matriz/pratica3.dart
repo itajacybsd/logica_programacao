@@ -32,13 +32,31 @@ void main(List<String> args) {
     } else if (desejoComprar == "N") {
       querComprar = false;
     } else {
-      print("Digite o número da fileira desejada (0-${fileiras - 1})");
-      int fileiraEscolhida = int.parse(stdin.readLineSync() as String);
+      int fileiraEscolhida = -1;
+      while (fileiraEscolhida < 0 || fileiraEscolhida > (fileiras - 1)) {
+        print("Digite o número da fileira desejada (0-${fileiras - 1})");
+        fileiraEscolhida = int.parse(stdin.readLineSync() as String);
+        if (fileiraEscolhida < 0 || fileiraEscolhida > (fileiras - 1)) {
+          print("Número de Fileira inválido!");
+        }
+      }
 
-      print(
-        "Digite o número da poltrona desejada (0-${poltronasPorFileira - 1})",
-      );
-      int poltronaEscolhida = int.parse(stdin.readLineSync() as String);
+      int poltronaEscolhida = -1;
+      while (poltronaEscolhida < 0 ||
+          poltronaEscolhida > (poltronasPorFileira - 1)) {
+        print(
+          "Digite o número da poltrona desejada (0-${poltronasPorFileira - 1})",
+        );
+        poltronaEscolhida = int.parse(stdin.readLineSync() as String);
+        if (poltronaEscolhida < 0 ||
+            poltronaEscolhida > (poltronasPorFileira - 1)) {
+          print("Número de poltrona inválida!");
+        }
+      }
+      if (teatro[fileiraEscolhida][poltronaEscolhida] == "X") {
+        print("POLTRONA JÁ ESCOLHIDA");
+        continue;
+      }
 
       print("        Mapa do Teatro");
       print("------------------------------");
@@ -49,9 +67,8 @@ void main(List<String> args) {
         for (var poltrona = 0; poltrona < poltronasPorFileira; poltrona++) {
           if ((fileira == fileiraEscolhida) &&
               (poltrona == poltronaEscolhida)) {
-            teatro[fileira][poltrona] = '******** | ';
-            fileiraP += teatro[fileira][poltrona];
-            // fileiraP += '******** | ';
+            teatro[fileira][poltrona] = 'X';
+            fileiraP += 'P($fileira$poltrona): ${teatro[fileira][poltrona]} | ';
           } else {
             fileiraP += 'P($fileira$poltrona): ${teatro[fileira][poltrona]} | ';
           }
