@@ -1,3 +1,5 @@
+// PARAMETROS DE UMA FUNÇÃO
+
 // Tipos Primitivos (int, double, bool, String)
 //  É ENVIADA UMA CÓPIA DA VARIÁVEL EM MEMÓRIA
 
